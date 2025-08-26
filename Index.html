@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Facebook – log in or sign up</title>
+  <style>
+    :root{
+      --fb-blue:#1877F2;
+      --fb-dark:#1c1e21;
+      --text:#1d2129;
+      --muted:#606770;
+      --bg:#f0f2f5;
+      --white:#fff;
+      --green:#42B72A;
+      --shadow:0 2px 8px rgba(0,0,0,.08);
+      --radius:12px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font:16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+    }
+
+    .wrap{
+      min-height:calc(100% - 200px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 16px 24px;
+    }
+
+    .container{
+      width:100%;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    /* Left column */
+    .brand{
+      padding-right:24px;
+    }
+    .logo{
+      font-size:56px;
+      font-weight:700;
+      color:var(--fb-blue);
+      letter-spacing:-1px;
+      margin:0 0 8px;
+      line-height:1;
+    }
+    .tagline{
+      font-size:28px;
+      color:var(--dark, var(--fb-dark));
+      margin:0;
+      line-height:1.2;
+    }
+
+    /* Right column: card */
+    .card{
+      background:var(--white);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .input{
+      width:100%;
+      padding:14px 16px;
+      border:1px solid #dddfe2;
+      border-radius:8px;
+      outline:none;
+      font-size:16px;
+    }
+    .input:focus{
+      border-color:var(--fb-blue);
+      box-shadow:0 0 0 3px rgba(24,119,242,.15);
+    }
+
+    .btn{
+      display:inline-block;
+      width:100%;
+      border:0;
+      border-radius:8px;
+      font-weight:700;
+      font-size:18px;
+      padding:12px 16px;
+      cursor:pointer;
+      transition:transform .05s ease, filter .15s ease;
+    }
+    .btn:active{ transform:scale(.99); }
+
+    .btn-primary{ background:var(--fb-blue); color:#fff; }
+    .btn-primary:hover{ filter:brightness(.95); }
+
+    .link{
+      color:var(--fb-blue);
+      text-decoration:none;
+      font-size:14px;
+      text-align:center;
+      display:inline-block;
+      padding:8px 0 4px;
+    }
+    .link:hover{ text-decoration:underline; }
+
+    .hr{
+      height:1px; background:#dadde1; border:0; margin:8px 0; 
+    }
+
+    .create{
+      background:var(--green);
+      color:#fff;
+      width:max-content;
+      align-self:center;
+      padding:12px 16px;
+      border-radius:8px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .create:hover{ filter:brightness(.95); }
+
+    .create-page{
+      font-size:14px;
+      text-align:center;
+      color:var(--muted);
+      margin-top:24px;
+    }
+    .create-page a{ color:inherit; font-weight:700; text-decoration:none; }
+    .create-page a:hover{ text-decoration:underline; }
+
+    /* Footer */
+    .footer{
+      max-width:980px;
+      margin:0 auto;
+      padding:24px 16px 48px;
+      color:#8a8d91;
+      font-size:12px;
+    }
+    .footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:8px 16px; }
+    .footer .muted{ color:#8a8d91; }
+    .footer .sep{ margin:0 6px; color:#bcc0c4; }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .container{ grid-template-columns:1fr; gap:24px; }
+      .brand{ text-align:center; padding-right:0; }
+      .logo{ font-size:52px; }
+      .tagline{ font-size:24px; }
+      .wrap{ padding-top:32px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="container">
+      <!-- Left: brand & message -->
+      <section class="brand" aria-label="Brand">
+        <h1 class="logo">facebook</h1>
+        <p class="tagline">Facebook helps you connect and share with the people in your life.</p>
+      </section>
+
+      <!-- Right: login card -->
+      <section aria-label="Login">
+        <form class="card" action="#" method="post" autocomplete="on">
+          <label class="sr-only" for="email">Email address or phone number</label>
+          <input class="input" id="email" name="email" type="text" placeholder="Email address or phone number" required />
+
+          <label class="sr-only" for="password">Password</label>
+          <input class="input" id="password" name="password" type="password" placeholder="Password" required />
+
+          <button class="btn btn-primary" type="submit">Log in</button>
+
+          <a href="#" class="link">Forgotten password?</a>
+          <hr class="hr" />
+          <button class="create" type="button" onclick="alert('This is a static demo.')">Create new account</button>
+        </form>
+
+        <p class="create-page"><a href="#">Create a Page</a> for a celebrity, brand or business.</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer (mock) -->
+  <footer class="footer" aria-label="Footer">
+    <ul>
+      <li>English (UK)</li>
+      <li>हिन्दी</li>
+      <li>मराठी</li>
+      <li>اردو</li>
+      <li>தமிழ்</li>
+      <li>বাংলা</li>
+      <li>తెలుగు</li>
+      <li>ગુજરાતી</li>
+      <li>ಕನ್ನಡ</li>
+      <li>മലയാളം</li>
+      <li>ਪੰਜਾਬੀ</li>
+    </ul>
+    <hr class="hr" style="margin:12px 0" />
+    <ul>
+      <li>Sign Up</li>
+      <li>Log in</li>
+      <li>Messenger</li>
+      <li>Facebook Lite</li>
+      <li>Watch</li>
+      <li>Places</li>
+      <li>Games</li>
+      <li>Marketplace</li>
+      <li>Meta Pay</li>
+      <li>Meta Store</li>
+      <li>Meta Quest</li>
+      <li>Instagram</li>
+      <li>Threads</li>
+      <li>Fundraisers</li>
+      <li>Services</li>
+      <li>Voting Information Centre</li>
+      <li>Privacy Policy</li>
+      <li>Privacy Centre</li>
+      <li>Cookie Policy</li>
+      <li>Ad Choices</li>
+      <li>Terms</li>
+      <li>Help</li>
+      <li>Contact uploading and non-users</li>
+    </ul>
+    <p class="muted" style="margin-top:12px">Meta © 2025</p>
+  </footer>
+
+  <!-- Small helper for screen readers -->
+  <style>
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  </style>
+</body>
+</html>
